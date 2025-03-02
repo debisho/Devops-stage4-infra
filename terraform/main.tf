@@ -19,8 +19,8 @@ resource "aws_instance" "app_server" {
 
 provisioner "local-exec" {
   command = <<EOT
-    echo "[servers]" > ansible/inventory
-     echo "app_server ansible_host=${self.public_ip} ansible_user=ubuntu ansible_ssh_private_key_file=${var.ssh_key_path} ansible_ssh_common_args='-o StrictHostKeyChecking=no'" >> ansible/inventory
+    echo "[servers]" > ../ansible/inventory
+     echo "app_server ansible_host=${self.public_ip} ansible_user=ubuntu ansible_ssh_private_key_file=${var.ssh_key_path} ansible_ssh_common_args='-o StrictHostKeyChecking=no'" >> ../ansible/inventory
   EOT
 }
 
@@ -83,6 +83,6 @@ resource "null_resource" "configure_server" {
   depends_on = [null_resource.wait_for_ssh]
 
   provisioner "local-exec" {
-    command = "ansible-playbook -i ansible/inventory ansible/playbook.yml"
+    command = "ansible-playbook -i ../ansible/inventory ../ansible/playbook.yml"
   }
 }

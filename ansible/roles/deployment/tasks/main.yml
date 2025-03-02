@@ -2,7 +2,7 @@
 - name: Clone the repository
   become: true
   git:
-    repo: "https://github.com/Jidetireni/DevOps-Stage-4.git"
+    repo: "https://github.com/debisho/Devops-stage4-infra"
     dest: /home/ubuntu/todo-app
     version: main
     force: yes
@@ -17,7 +17,7 @@
 - name: setup ssl cert
   become: true
   shell: |
-    curl "https://www.duckdns.org/update?domains=todoapphng.duckdns.org&token=8109b11a-af70-44dc-b256-cee0b260579a&ip={{ ansible_host }}"
+    curl "https://www.duckdns.org/update?domains=deehng.duckdns.org&token=b91779b7-af48-46b4-9eea-245c74bceafa&ip={{ ansible_host }}"
     
 - name: Create docker network
   become: true

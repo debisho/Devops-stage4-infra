@@ -4,3 +4,4 @@ terraform.tfvars
 ansible/inventory
 .terraform
 .terraform.tfstate.lock.info
+Stage4-key.pem
